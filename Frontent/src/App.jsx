@@ -12,61 +12,38 @@ import ShopHome from './pages/Shop/Home'
 import ShopList from './pages/Shop/Listing'
 import ShopAccount from './pages/Shop/Account'
 import ShopCheckOut from './pages/Shop/Checkout'
-import Auth from "./components/Utils/Auth"
 import Unauthorized from './pages/NotFound/Unauthorized'
 import NotFound from './pages/NotFound/index'
 
 
+
 function App() {
-  const isAuthenticated=false
-  const user={
-    name:"ram",
-    email:"ram123@gmail.com",
-    password:"ram@123",
-    role:"admin"
-  };
-
-
   return (
-    <>
+  
       <div className="flex flex-col overflow-hidden bg-white">
         <Routes>
-          <Route path="/auth" element={
-            <Auth isAuthenticated={isAuthenticated} user={user}>
-              <AuthLayout />
-             </Auth>
-          }
-          >
+          <Route path="/auth" element={<AuthLayout />}>
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
           </Route>
-          <Route path="/admin" element={
-            <Auth isAuthenticated={isAuthenticated} user={user}>
-              <AdminLayout />
-             </Auth>
-          }>
+          <Route path="/admin" element={<AdminLayout />}>
             <Route path="dashboard" element={<AdminDashoboard />} />
             <Route path="product" element={<AdminProduct />} />
             <Route path="order" element={<AdminOrder />} />
             <Route path="features" element={<AdminFeatures />} />
           </Route>
-          <Route path="/shop" element={
-            <Auth isAuthenticated={isAuthenticated} user={user}>
-              <ShopLayout />
-            </Auth>
-          }>
+          <Route path="/shop" element={<ShopLayout />}>
             <Route path="home" element={<ShopHome />} />
             <Route path="list" element={<ShopList />} />
             <Route path="account" element={<ShopAccount />} />
             <Route path="checkout" element={<ShopCheckOut />} />
-
           </Route>
           <Route path="unauth-page" element={<Unauthorized />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
-    </>
-  )
+  
+  );
 }
 
-export default App
+export default App;

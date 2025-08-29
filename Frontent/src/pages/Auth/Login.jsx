@@ -131,10 +131,9 @@ const Login = () => {
             {/* Sign Up Link */}
             <div className="text-center mt-8">
               <span className="text-sm text-gray-400">
-                New here?
+                New here? </span>
                 <span className="text-gray-600 hover:underline cursor-pointer ml-1">
                   <Link to="/auth/register">Signup</Link>
-                </span>
               </span>
             </div>
           </form>
